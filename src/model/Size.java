@@ -20,4 +20,8 @@ public class Size {
 		this.name = name;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }

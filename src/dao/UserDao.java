@@ -22,7 +22,7 @@ public class UserDao {
 	}
 
 	public User checkLogin(String username, String password) {
-		String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+		String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND status = '1'";
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -42,7 +42,7 @@ public class UserDao {
 				user.setEmail(resultSet.getString("email"));
 				user.setPhone(resultSet.getString("phone"));
 				user.setAddress(resultSet.getString("address"));
-				user.setStatus(resultSet.getInt("status"));
+				user.setStatus(resultSet.getString("status"));
 				user.setRole(resultSet.getString("role"));
 				user.setGender(resultSet.getString("gender"));
 				user.setBirthday(resultSet.getTimestamp("birthday").toLocalDateTime());

@@ -2,7 +2,9 @@ package service;
 
 import java.util.List;
 
+import dao.DrinkDao;
 import model.DrinkDetails;
+import model.Drinks;
 
 public class DrinkService {
 	private static DrinkService instance;
@@ -18,6 +20,10 @@ public class DrinkService {
 	}
 
 	public List<DrinkDetails> getDrinkDetails(long drinkId) {
-		return null;
+		return DrinkDao.getInstance().getDrinkDetails(drinkId);
+	}
+
+	public List<Drinks> findByCategoryId(long categoryId) {
+		return DrinkDao.getInstance().findByCategoryId(categoryId);
 	}
 }

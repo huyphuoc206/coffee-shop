@@ -11,7 +11,7 @@ public class User {
 	private String address;
 	private String gender;
 	private LocalDateTime birthday;
-	private int status;
+	private String status;
 	private String username;
 	private String password;
 	private String role;
@@ -69,12 +69,12 @@ public class User {
 		this.birthday = birthday;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int i) {
-		this.status = i;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getUsername() {

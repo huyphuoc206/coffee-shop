@@ -16,39 +16,39 @@ public class LoginController {
 	private LoginView loginView;
 
 	public LoginController() {
-		this.loginView = new LoginView();
-		this.loginView.setVisible(true);
+		loginView = new LoginView();
+		loginView.setVisible(true);
 		loginEvent();
 	}
 
 	private void loginEvent() {
-		this.loginView.getBtnLogin().addActionListener(new ActionListener() {
+		loginView.getBtnLogin().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String username = LoginController.this.loginView.getTxtUsername().getText();
+				String username = loginView.getTxtUsername().getText();
 				@SuppressWarnings("deprecation")
-				String password = LoginController.this.loginView.getTxtPassword().getText();
+				String password = loginView.getTxtPassword().getText();
 				checkLogin(username, password);
 			}
 		});
 
-		this.loginView.getTxtUsername().addKeyListener(new java.awt.event.KeyAdapter() {
+		loginView.getTxtUsername().addKeyListener(new java.awt.event.KeyAdapter() {
 			public void keyPressed(java.awt.event.KeyEvent evt) {
-				String username = LoginController.this.loginView.getTxtUsername().getText();
+				String username = loginView.getTxtUsername().getText();
 				@SuppressWarnings("deprecation")
-				String password = LoginController.this.loginView.getTxtPassword().getText();
+				String password = loginView.getTxtPassword().getText();
 				if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 					checkLogin(username, password);
 				}
 			}
 		});
 
-		this.loginView.getTxtPassword().addKeyListener(new java.awt.event.KeyAdapter() {
+		loginView.getTxtPassword().addKeyListener(new java.awt.event.KeyAdapter() {
 			public void keyPressed(java.awt.event.KeyEvent evt) {
-				String username = LoginController.this.loginView.getTxtUsername().getText();
+				String username = loginView.getTxtUsername().getText();
 				@SuppressWarnings("deprecation")
-				String password = LoginController.this.loginView.getTxtPassword().getText();
+				String password = loginView.getTxtPassword().getText();
 				if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 					checkLogin(username, password);
 				}
@@ -71,14 +71,14 @@ public class LoginController {
 			LoginInfo.USER_ID = user.getId();
 			LoginInfo.FULLNAME = user.getFullname();
 			if (Role.USER.name().equals(user.getRole())) {
-				this.loginView.dispose();
+				loginView.dispose();
 				new StaffController();
 			} else if (user.getRole() == Role.ADMIN.name()) {
 				// forward admin view
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Tên đăng nhập và mật khẩu không hợp lệ.");
-			this.loginView.clear();
+			loginView.clear();
 		}
 	}
 
