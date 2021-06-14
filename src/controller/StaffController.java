@@ -8,9 +8,10 @@ import view.StafffView;
 
 public class StaffController {
 	private StafffView stafffView;
-
+	
 	public StaffController() {
-		super();
+		this.stafffView = new StafffView();
+		this.stafffView.getFrame().setVisible(true);
 	}
 	
 	public List<DrinkDetails> getDrinkDetails(long drinkId) {

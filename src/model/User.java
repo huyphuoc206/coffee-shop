@@ -9,12 +9,12 @@ public class User {
 	private String email;
 	private String phone;
 	private String address;
-	private Gender gender;
-	private LocalDate birthday;
-	private String status;
+	private String gender;
+	private LocalDateTime birthday;
+	private int status;
 	private String username;
 	private String password;
-	private Role role;
+	private String role;
 	private LocalDateTime createdDate;
 
 	public User() {
@@ -53,28 +53,28 @@ public class User {
 		this.address = address;
 	}
 
-	public Gender getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	public LocalDate getBirthday() {
+	public LocalDateTime getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(LocalDate birthday) {
+	public void setBirthday(LocalDateTime birthday) {
 		this.birthday = birthday;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(int i) {
+		this.status = i;
 	}
 
 	public String getUsername() {
@@ -93,11 +93,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
@@ -111,6 +111,10 @@ public class User {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

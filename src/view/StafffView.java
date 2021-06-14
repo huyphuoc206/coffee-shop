@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.List;
@@ -13,11 +12,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.WindowConstants;
 
 import model.Drinks;
 import model.Payment;
@@ -39,26 +40,12 @@ public class StafffView {
 	private JComboBox<String> comboBoxSize;
 	private JTable tableBill;
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StafffView window = new StafffView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public StafffView() {
 		initialize();
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 	}
 
 	/**
@@ -67,10 +54,17 @@ public class StafffView {
 	@SuppressWarnings("deprecation")
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Nong Lam Coffee");
 		frame.setBounds(100, 100, 1126, 603);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
+		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+			public void windowClosing(java.awt.event.WindowEvent evt) {
+				formWindowClosing(evt);
+			}
+		});
+		
 		JPanel panelStaffName = new JPanel();
 		panelStaffName.setBounds(12, -13, 271, 42);
 		frame.getContentPane().add(panelStaffName);
@@ -186,6 +180,20 @@ public class StafffView {
 		showPayments(null);
 	}
 
+	private void formWindowClosing(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowClosing
+		exitApplication();
+	}
+
+	private void exitApplication() {
+		int choice = JOptionPane.showConfirmDialog(frame, "Bạn có thật sự thoát chương trình?", "Exit",
+				JOptionPane.OK_CANCEL_OPTION);
+		if (choice == 0) {
+			System.exit(0);
+		} else {
+			frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+		}
+	}
+	
 	public void showDrinks(List<Drinks> drinks) {
 		for (int i = 0; i < 15; i++) {
 			JPanel panel = new JPanel();
@@ -204,7 +212,7 @@ public class StafffView {
 	
 	public void showCategories(List<Category> categories) {
 		for (int i = 0; i < 6; i++) {
-			JButton button = new JButton("Trà đào");
+			JButton button = new JButton("Sinh tố");
 			button.setPreferredSize(new Dimension(100, 30));
 			panelCategory.add(button);
 		}
@@ -219,4 +227,10 @@ public class StafffView {
 			panelPayment.add(payment);
 		}
 	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+	
+	
 }
