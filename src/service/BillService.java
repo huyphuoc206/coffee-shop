@@ -1,5 +1,6 @@
 package service;
 
+import dao.BillDao;
 import model.Bill;
 
 public class BillService {
@@ -16,7 +17,7 @@ public class BillService {
 	}
 
 	public Bill saveBill(Bill bill) {
-		return null;
+		return BillDao.getInstance().saveBill(bill);
 	}
 
 }

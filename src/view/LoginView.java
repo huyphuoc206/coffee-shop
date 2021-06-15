@@ -67,6 +67,7 @@ public class LoginView extends javax.swing.JFrame {
 		btnExit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
 		btnExit.setText("Thoát");
+		btnExit.setFocusPainted(false);
 		btnExit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnExitActionPerformed(evt);
@@ -75,6 +76,7 @@ public class LoginView extends javax.swing.JFrame {
 
 		btnLogin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 		btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
+		btnLogin.setFocusPainted(false);
 		btnLogin.setText("Đăng nhập");
 		javax.swing.GroupLayout pnlWrapperLayout = new javax.swing.GroupLayout(pnlWrapper);
 		pnlWrapper.setLayout(pnlWrapperLayout);
