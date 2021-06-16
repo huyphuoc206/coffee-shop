@@ -19,13 +19,13 @@ public class Bill {
 
 	public long getTotalPrice() {
 		return totalPrice;
-	
+
 	}
 
 	public void setTotalPrice(long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
+
 	public long calTotalPrice() {
 		long total = 0;
 		for (BillDetails item : billDetails) {
@@ -34,7 +34,7 @@ public class Bill {
 		}
 		return total;
 	}
-	
+
 	public String getStatus() {
 		return status;
 	}
@@ -73,6 +73,10 @@ public class Bill {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void addBillDetails(BillDetails b) {

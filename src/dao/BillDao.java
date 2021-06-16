@@ -47,6 +47,7 @@ public class BillDao {
 			for (BillDetails billDetail : bill.getBillDetails()) {
 				saveBillDetails(id, billDetail);
 			}
+			bill.setId(id);
 			return bill;
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();

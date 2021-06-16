@@ -1,7 +1,9 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import service.BillService;
 import service.CategoryService;
 import service.DrinkService;
 import service.PaymentService;
+import utils.PDFUtils;
 import view.StaffView;
 
 public class StaffController {
@@ -139,6 +142,7 @@ public class StaffController {
 					int index = Integer.parseInt(staffView.getTableBill().getValueAt(rows[0], 0) + "");
 					removeDrink(index);
 				}
+				
 			}
 		});
 	}
@@ -193,11 +197,18 @@ public class StaffController {
 				if (entry.getValue().isSelected()) {
 					Payment payment = new Payment();
 					payment.setId(entry.getKey());
+					payment.setName(entry.getValue().getText());
 					bill.setPayment(payment);
 					break;
 				}
 			}
-			if (saveBill(bill) != null) {
+			bill = saveBill(bill);
+			if (bill != null) {
+				try {
+					PDFUtils.printBill(bill);
+				} catch (IOException e) {
+					return;
+				}
 				JOptionPane.showMessageDialog(null, "Thanh toán thành công");
 				staffView.clearAfterCheckout();
 			}
