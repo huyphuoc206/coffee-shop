@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -51,7 +52,8 @@ public class LoginView extends javax.swing.JFrame {
 				formWindowClosing(evt);
 			}
 		});
-
+		ImageIcon logo = new ImageIcon(getClass().getResource("/images/logo.png"));
+		setIconImage(logo.getImage());
 		pnlLogin.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
 		jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

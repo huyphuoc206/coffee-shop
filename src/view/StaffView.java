@@ -94,7 +94,9 @@ public class StaffView {
 				formWindowClosing(evt);
 			}
 		});
-
+		ImageIcon logo = new ImageIcon(getClass().getResource("/images/logo.png"));
+		frame.setIconImage(logo.getImage());
+		
 		JPanel panelStaffName = new JPanel();
 		panelStaffName.setBounds(12, -13, 318, 42);
 		frame.getContentPane().add(panelStaffName);
